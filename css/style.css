@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+/* Reset and base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Base typography: Noto Sans JP for body */
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #093065;
+    /* Background Gradient */
+    background: linear-gradient(180deg, #ffffff 0%, #e0e5f3 50%, #ffffff 100%);
+    background-attachment: fixed;
+    line-height: 1.8;
+}
+
+/* Headings: Noto Serif JP or UD Mincho fallback */
+h1, h2, h3, h4, .catchword {
+    font-family: 'Noto Serif JP', serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 4. First View Animation */
+#startup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* fade out total timeline: delay 2.5s (1s fade in + 1.5s static), duration 1s */
+    animation: fadeOutOverlay 1s ease 2.5s forwards;
+}
+
+.color-bars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row; /* Vertical bars */
+    z-index: 1;
+}
+
+.cbar {
+    flex: 1;
+    height: 100%;
+}
+
+.logo-wrapper {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    /* 1s fade-in, 1.5s static, 1s fade-out => Total 3.5s */
+    animation: fadeSeq 3.5s ease forwards;
+}
+
+.startup-logo {
+    width: 200px;
+    height: auto;
+}
+
+@keyframes fadeSeq {
+    0% { opacity: 0; }
+    28.5% { opacity: 1; }  /* 1s fade-in */
+    71.4% { opacity: 1; }  /* 1.5s static */
+    100% { opacity: 0; }   /* 1s fade-out */
+}
+
+@keyframes fadeOutOverlay {
+    0% { visibility: visible; }
+    100% { visibility: hidden; pointer-events: none; opacity: 0; }
+}
+
+/* 3. Page Basic Structure */
+.container {
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden; /* Prevent horizontal scroll from slants/bg-logos */
+    background: transparent;
+}
+
+/* 6. Section Common Specs */
+.section {
+    position: relative;
+    padding: 100px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bg-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Futura', sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+    color: #093065;
+    opacity: 0.05; /* 5% - 8% */
+    z-index: -1;
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-align: center;
+    pointer-events: none;
+}
+
+.section-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Section elements */
+.sec-logo {
+    width: 120px;
+    margin: 0 auto 30px;
+}
+
+.catchword {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sec-image {
+    width: 100%;
+    border-radius: 2px;
+}
+
+.body-text {
+    font-size: 15px;
+    text-align: left;
+}
+
+/* Layout alignment for Left / Right / Center */
+.layout-center-inner {
+    text-align: center;
+}
+.layout-center .catchword, .layout-center .body-text {
+    text-align: center;
+}
+
+.layout-right-inner {
+    text-align: right;
+}
+.layout-right .catchword, .layout-right .body-text {
+    text-align: right;
+}
+
+.layout-left-inner {
+    text-align: left;
+}
+.layout-left .catchword, .layout-left .body-text {
+    text-align: left;
+}
+
+/* Slanted Lines (height 60px, opacity 0.35, directed to center) */
+.slant {
+    width: 100%;
+    height: 60px;
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.slant-center {
+    /* Optional: Center doesn't strictly have a slant, but if needed we can make it vertical or v-shaped. Let's make it vertical. */
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(9, 48, 101, 0.35),
+        rgba(9, 48, 101, 0.35) 2px,
+        transparent 2px,
+        transparent 20px
+    );
+}
+
+.slant-right {
+    /* Directed to center from right (max width center means going left-down) */
+    background: repeating-linear-gradient(
+        135deg,
+        rgba(9, 48, 101, 0.35),
+        rgba(9, 48, 101, 0.35) 2px,
+        transparent 2px,
+        transparent 20px
+    );
+}
+
+.slant-left {
+    /* Directed to center from left (going right-down) */
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(9, 48, 101, 0.35),
+        rgba(9, 48, 101, 0.35) 2px,
+        transparent 2px,
+        transparent 20px
+    );
+}
+
+/* Integrated Visual */
+.integrated-visual {
+    margin-top: 80px;
+    padding: 0 20px;
+}
