@@ -166,19 +166,57 @@ img {
     pointer-events: none;
 }
 
-/* 静的で品格ある演出 (B設計) - Subtly fade up */
+/* 静的で品格ある演出 (B設計) - Subtly fade up, now handled individually */
 .section-content {
     position: relative;
     z-index: 2;
+}
+
+/* Base style for elements that will fade in */
+.section .sec-logo,
+.section .catchword,
+.section .flex-wrap,
+.section .bg-logo {
     opacity: 0;
-    transform: translateY(15px);
-    /* Minimal vertical move for elegance */
+    transform: translateY(20px);
     transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
-.section.is-visible .section-content {
+/* bg-logo starts larger or further back, no Y translation needed but opacity fades in */
+.section .bg-logo {
+    transform: translate(-50%, -50%) scale(0.95);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+/* When the section becomes visible, trigger the animations with delays */
+
+/* ① 英語ロゴPNG表示 - First */
+.section.is-visible .sec-logo {
     opacity: 1;
     transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+/* ② キャッチワード表示 - Second */
+.section.is-visible .catchword {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+/* ③ 左右レイアウト展開 (画像と本文) - Third */
+.section.is-visible .flex-wrap {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.6s;
+}
+
+/* ④ 背景に巨大英語ロゴ - Appears gently behind the text/image during step 3 */
+.section.is-visible .bg-logo {
+    opacity: 0.05;
+    /* Max opacity as defined */
+    transform: translate(-50%, -50%) scale(1);
+    transition-delay: 1.4s;
 }
 
 /* Section elements */
@@ -340,4 +378,14 @@ img {
 .integrated-visual {
     margin-top: 60px;
     width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.section.is-visible .integrated-visual {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 2.2s;
+    /* Appears after everything else in unison */
 }
