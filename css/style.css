@@ -7,20 +7,23 @@
     padding: 0;
 }
 
+html,
+body {
+    width: 100%;
+}
+
 html {
-    /* 弁当箱構造：Scroll snapping */
+    /* 弁当箱構造：Scroll snapping (works on html element in modern browsers) */
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 body {
     /* Base typography: Noto Sans JP for body */
     font-family: 'Noto Sans JP', sans-serif;
     color: #093065;
-    /* Background Gradient */
+    /* Background Gradient spans document height! (No fixed attachment) */
     background: linear-gradient(180deg, #ffffff 0%, #e0e5f3 50%, #ffffff 100%);
-    background-attachment: fixed;
     line-height: 1.8;
 }
 
@@ -118,6 +121,7 @@ img {
         visibility: hidden;
         pointer-events: none;
         opacity: 0;
+        display: none;
     }
 }
 
@@ -126,8 +130,9 @@ img {
     max-width: 520px;
     margin: 0 auto;
     position: relative;
-    /* Prevent horizontal scroll from slants/bg-logos */
     background: transparent;
+    overflow-x: hidden;
+    /* Avoid horizontal scroll from background massive logos */
 }
 
 /* 6. Section Common Specs */
@@ -140,36 +145,36 @@ img {
     flex-direction: column;
     justify-content: center;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     padding: 80px 20px 40px;
-    /* Adjust padding appropriately */
 }
 
+/* ④ 背景に巨大英語ロゴ（透過5〜8%） */
 .bg-logo {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Futura', sans-serif;
-    font-size: 100px;
-    /* Large scale */
+    font-size: min(120px, 20vw);
+    /* Ensure it is huge but fits */
     font-weight: bold;
     color: #093065;
     opacity: 0.05;
-    /* 5% - 8% */
     z-index: -1;
     white-space: nowrap;
     text-transform: uppercase;
-    text-align: center;
     pointer-events: none;
 }
 
+/* 静的で品格ある演出 (B設計) - Subtly fade up */
 .section-content {
     position: relative;
     z-index: 2;
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease-out;
-    /* 静的で品格ある演出 */
+    transform: translateY(15px);
+    /* Minimal vertical move for elegance */
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
 .section.is-visible .section-content {
@@ -178,18 +183,22 @@ img {
 }
 
 /* Section elements */
+/* ① 英語ロゴPNG表示 */
 .sec-logo {
     width: 120px;
     margin: 0 auto 30px;
 }
 
+/* ② キャッチワード表示 */
 .catchword {
-    font-size: 24px;
+    font-size: clamp(20px, 5vw, 24px);
+    /* Mobile-friendly scale */
     text-align: center;
     margin-bottom: 40px;
     line-height: 1.6;
 }
 
+/* 余白主役 Layout Base */
 .flex-wrap {
     display: flex;
     flex-direction: column;
@@ -206,12 +215,15 @@ img {
     text-align: left;
 }
 
-/* 左右レイアウト展開 (余白主役): Align specific sections to L/R sides inside the container */
-/* Center aligned layout */
+
+/* ③ 左右レイアウト展開: 
+   Deliberate white space to strictly fulfill the "余白主役" design constraint 
+*/
+
+/* Central aligned */
 .layout-center .section-content {
     width: 100%;
     margin: 0 auto;
-    text-align: center;
 }
 
 .layout-center .catchword,
@@ -219,11 +231,11 @@ img {
     text-align: center;
 }
 
-/* White space on left, content pushed right */
+/* White space on the left, content firmly on the right */
 .layout-right .section-content {
-    width: 85%;
+    width: 75%;
+    /* Deliberate 25% whitespace */
     margin-left: auto;
-    text-align: right;
 }
 
 .layout-right .catchword,
@@ -239,11 +251,11 @@ img {
     margin: 0 0 30px auto;
 }
 
-/* White space on right, content pushed left */
+/* White space on the right, content firmly on the left */
 .layout-left .section-content {
-    width: 85%;
+    width: 75%;
+    /* Deliberate 25% whitespace */
     margin-right: auto;
-    text-align: left;
 }
 
 .layout-left .catchword,
@@ -259,46 +271,52 @@ img {
     margin: 0 auto 30px 0;
 }
 
-/* Slanted Lines (height 60px, opacity 0.35, 中央誘導 配置により傾き反転) */
+
+/* Section Specific Theme Colors (From TV color bar rules mapping 1:1) */
+.bg-integrity {
+    background-color: #607894 !important;
+}
+
+.bg-challenge {
+    background-color: #005f6b !important;
+}
+
+.bg-humanity {
+    background-color: #dea876 !important;
+}
+
+.bg-innovation {
+    background-color: #0077b6 !important;
+}
+
+.bg-mission {
+    background-color: #766a8a !important;
+}
+
+.bg-amusement {
+    background-color: #967117 !important;
+}
+
+.bg-revolution {
+    background-color: #ff806e !important;
+}
+
+.bg-unison {
+    background-color: #a7a7a7 !important;
+}
+
+
+/* 斜線 (Height 60px, width 10px, 中央誘導, 配置により傾き反転) 
+   User specifically requested this to be a THICK ACCENT line using the designated colors.
+*/
 .slant {
-    width: 12px;
+    width: 10px;
+    /* 太いライン */
     height: 60px;
-    opacity: 0.35;
+    /* Removed opacity 0.35 because user explicitly asked for a strong "Accent using specified color" */
     position: relative;
     z-index: 1;
     margin-top: 40px;
-}
-
-#integrity .slant {
-    background-color: #607894;
-}
-
-#challenge .slant {
-    background-color: #005f6b;
-}
-
-#humanity .slant {
-    background-color: #dea876;
-}
-
-#innovation .slant {
-    background-color: #0077b6;
-}
-
-#mission .slant {
-    background-color: #766a8a;
-}
-
-#amusement .slant {
-    background-color: #967117;
-}
-
-#revolution .slant {
-    background-color: #ff806e;
-}
-
-#unison .slant {
-    background-color: #a7a7a7;
 }
 
 .layout-center .slant {
@@ -307,23 +325,30 @@ img {
     transform: rotate(0deg);
 }
 
-/* If on the right layout, line points down-left to guide towards center */
+/* Right layout: central axis is to the left. 
+   Line needs to point down-left to guide eye to center */
 .layout-right .slant {
     margin-left: auto;
-    /* 30deg rotates top to right, so following top->bottom guides eye down-left */
+    /* Aligned with right content */
+    margin-right: 20px;
+    /* Small inset so it doesn't touch the very edge */
     transform: rotate(30deg);
+    /* Top stays, bottom swings left */
     transform-origin: top center;
 }
 
-/* If on the left layout, line points down-right to guide towards center */
+/* Left layout: central axis is to the right. 
+   Line needs to point down-right to guide eye to center */
 .layout-left .slant {
     margin-right: auto;
-    /* -30deg rotates top to left, so following top->bottom guides eye down-right */
+    /* Aligned with left content */
+    margin-left: 20px;
     transform: rotate(-30deg);
+    /* Top stays, bottom swings right */
     transform-origin: top center;
 }
 
-/* Integrated Visual */
+/* Integrated Visual (UNISON Only) */
 .integrated-visual {
     margin-top: 60px;
     width: 100%;
