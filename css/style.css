@@ -261,13 +261,44 @@ img {
 
 /* Slanted Lines (height 60px, opacity 0.35, 中央誘導 配置により傾き反転) */
 .slant {
-    width: 2px;
+    width: 12px;
     height: 60px;
-    background-color: rgba(9, 48, 101, 0.35);
-    /* #093065 with 35% opacity */
+    opacity: 0.35;
     position: relative;
     z-index: 1;
     margin-top: 40px;
+}
+
+#integrity .slant {
+    background-color: #607894;
+}
+
+#challenge .slant {
+    background-color: #005f6b;
+}
+
+#humanity .slant {
+    background-color: #dea876;
+}
+
+#innovation .slant {
+    background-color: #0077b6;
+}
+
+#mission .slant {
+    background-color: #766a8a;
+}
+
+#amusement .slant {
+    background-color: #967117;
+}
+
+#revolution .slant {
+    background-color: #ff806e;
+}
+
+#unison .slant {
+    background-color: #a7a7a7;
 }
 
 .layout-center .slant {
