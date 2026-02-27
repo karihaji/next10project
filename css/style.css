@@ -10,6 +10,7 @@
 html,
 body {
     width: 100%;
+    overflow-x: hidden;
 }
 
 html {
@@ -131,8 +132,6 @@ img {
     margin: 0 auto;
     position: relative;
     background: transparent;
-    overflow-x: hidden;
-    /* Avoid horizontal scroll from background massive logos */
 }
 
 /* 6. Section Common Specs */
@@ -306,46 +305,35 @@ img {
 }
 
 
-/* 斜線 (Height 60px, width 10px, 中央誘導, 配置により傾き反転) 
-   User specifically requested this to be a THICK ACCENT line using the designated colors.
+/* 斜線 (中央誘導, 配置により傾き反転) 
+   画面を覆い尽くし、貫くような幅感とダイナミズム
 */
 .slant {
-    width: 10px;
-    /* 太いライン */
-    height: 60px;
-    /* Removed opacity 0.35 because user explicitly asked for a strong "Accent using specified color" */
-    position: relative;
-    z-index: 1;
-    margin-top: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200vw;
+    height: 25vh;
+    /* 画面高の1/4を占めるダイナミックな幅感 */
+    opacity: 0.35;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .layout-center .slant {
-    margin-left: auto;
-    margin-right: auto;
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
 }
 
 /* Right layout: central axis is to the left. 
-   Line needs to point down-left to guide eye to center */
+   Line points down-left to guide eye to center */
 .layout-right .slant {
-    margin-left: auto;
-    /* Aligned with right content */
-    margin-right: 20px;
-    /* Small inset so it doesn't touch the very edge */
-    transform: rotate(30deg);
-    /* Top stays, bottom swings left */
-    transform-origin: top center;
+    transform: translate(-50%, -50%) rotate(35deg);
 }
 
 /* Left layout: central axis is to the right. 
-   Line needs to point down-right to guide eye to center */
+   Line points down-right to guide eye to center */
 .layout-left .slant {
-    margin-right: auto;
-    /* Aligned with left content */
-    margin-left: 20px;
-    transform: rotate(-30deg);
-    /* Top stays, bottom swings right */
-    transform-origin: top center;
+    transform: translate(-50%, -50%) rotate(-35deg);
 }
 
 /* Integrated Visual (UNISON Only) */
