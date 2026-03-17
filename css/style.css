@@ -391,6 +391,107 @@ img.bg-logo {
     transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
+/* -------------------------------------------
+   PC Desktop Overrides (min-width: 768px)
+   Dynamic, unstructured, wide layout
+------------------------------------------- */
+@media (min-width: 768px) {
+    /* Break the container max-width limit */
+    .container {
+        max-width: 90vw; /* Use most of the screen */
+    }
+
+    /* Super-size and shift background logos */
+    img.bg-logo {
+        width: 150vw; /* Massive */
+        max-width: none;
+        opacity: 0.20; /* Make it even more visible on big screens */
+    }
+
+    /* Shift BG logos aggressively based on layout to create dynamic asymmetry */
+    .layout-right img.bg-logo {
+        left: 20%;
+    }
+    
+    .layout-left img.bg-logo {
+        left: 80%;
+    }
+
+    /* Z-Layout: Side-by-side image and text */
+    .layout-right .flex-wrap,
+    .layout-left .flex-wrap {
+        flex-direction: row;
+        align-items: center;
+        gap: 60px;
+    }
+
+    /* Right Layout: Image on Left (breaking grid), Text on Right */
+    .layout-right .flex-wrap {
+        flex-direction: row-reverse; /* Put image first in DOM to left visually, wait, let's just use DOM order which is image then text */
+    }
+
+    /* Let's redefine based on DOM order: HTML is Image, then Body Text */
+    .layout-right .flex-wrap {
+        /* Image is first child. We want text on right. So row is fine. */
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .layout-right .sec-image {
+        width: 55%;
+        transform: translateX(-10%); /* Pull out to left edge */
+        margin-left: -10vw; 
+    }
+
+    .layout-right .body-text {
+        width: 45%;
+        font-size: 16px;
+        white-space: normal; /* Allow wrapping on wide lines if needed, or keep nowrap if preferred by design. Let's stick to nowrap for the poetic feel. */
+        line-height: 2.2;
+    }
+    
+    .layout-right .catchword {
+        text-align: right;
+        font-size: clamp(32px, 4vw, 48px);
+        margin-right: 0;
+    }
+
+    /* Left Layout: Image on Right, Text on Left */
+    .layout-left .flex-wrap {
+        flex-direction: row-reverse; /* Text first visually */
+        justify-content: flex-start;
+    }
+
+    .layout-left .sec-image {
+        width: 55%;
+        transform: translateX(10%); /* Pull out to right edge */
+        margin-right: -10vw;
+    }
+
+    .layout-left .body-text {
+        width: 45%;
+        font-size: 16px;
+        line-height: 2.2;
+    }
+
+    .layout-left .catchword {
+        text-align: left;
+        font-size: clamp(32px, 4vw, 48px);
+        margin-left: 0;
+    }
+    
+    /* Central Layout (Integrity, Unison) */
+    .layout-center .sec-image {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .layout-center .catchword {
+        font-size: clamp(32px, 4vw, 48px);
+    }
+}
+
+
 .section.is-visible .integrated-visual {
     opacity: 1;
     transform: translateY(0);
