@@ -224,11 +224,12 @@ img.bg-logo {
 
 /* ② キャッチワード表示 */
 .catchword {
-    font-size: clamp(16px, 4.5vw, 24px);
-    /* Scaled down slightly to fit mobile width */
+    font-size: clamp(20px, 6vw, 32px);
+    /* Scaled up to match wider container */
     text-align: center;
     margin-bottom: 40px;
     line-height: 1.6;
+    letter-spacing: 0.05em;
     white-space: nowrap;
     /* Prevent natural line breaks, rely purely on <br> tags */
 }
@@ -246,9 +247,10 @@ img.bg-logo {
 }
 
 .body-text {
-    font-size: clamp(12px, 3.5vw, 15px);
-    /* Responsive font scaling to prevent wrapping */
+    font-size: clamp(14px, 4vw, 16px);
+    /* Responsive font scaling up to prevent wrapping */
     text-align: left;
+    letter-spacing: 0.03em;
     white-space: nowrap;
     /* Assure strict 1 line per <p> sequence based on <br> */
 }
