@@ -244,6 +244,7 @@ img.bg-logo {
 .sec-image {
     width: 100%;
     border-radius: 2px;
+    mix-blend-mode: multiply; /* Renders white backgrounds as completely transparent, removing any visible 'frame' */
 }
 
 .body-text {
