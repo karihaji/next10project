@@ -228,11 +228,13 @@ img {
 
 /* ② キャッチワード表示 */
 .catchword {
-    font-size: clamp(20px, 5vw, 24px);
-    /* Mobile-friendly scale */
+    font-size: clamp(16px, 4.5vw, 24px);
+    /* Scaled down slightly to fit mobile width */
     text-align: center;
     margin-bottom: 40px;
     line-height: 1.6;
+    white-space: nowrap;
+    /* Prevent natural line breaks, rely purely on <br> tags */
 }
 
 /* 余白主役 Layout Base */
@@ -248,8 +250,11 @@ img {
 }
 
 .body-text {
-    font-size: 14px;
+    font-size: clamp(12px, 3.5vw, 15px);
+    /* Responsive font scaling to prevent wrapping */
     text-align: left;
+    white-space: nowrap;
+    /* Assure strict 1 line per <p> sequence based on <br> */
 }
 
 
