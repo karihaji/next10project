@@ -325,7 +325,7 @@ img.bg-logo {
     width: 75%;                         /* ~3/4 of the text area */
     min-width: 280px;
     max-width: 560px;
-    padding: 28px 30px;                 /* ~2 line heights tall */
+    padding: 16px 24px;                 /* Tighter padding for better icon proportions */
     border: 2px solid currentColor;
     border-radius: 16px;                /* Rounded rectangle (not pill) */
     text-decoration: none;
@@ -336,7 +336,7 @@ img.bg-logo {
 }
 
 .sec-btn img {
-    height: 22px;
+    height: 36px;                       /* Larger icon to fill more of the button */
     width: auto;
     filter: brightness(0) invert(1);    /* White icon on filled background by default */
     transition: filter 0.3s ease;
