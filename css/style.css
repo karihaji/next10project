@@ -609,6 +609,13 @@ img.bg-logo {
     .layout-center .body-text {
         text-align: center;
     }
+
+    /* Cap button size in center layout so it matches side-section sizes */
+    .layout-center .sec-btn {
+        width: auto;
+        min-width: 260px;
+        max-width: 400px;
+    }
     
     .layout-center .catchword {
         font-size: clamp(32px, 4vw, 48px);
