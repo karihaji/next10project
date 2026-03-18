@@ -322,29 +322,30 @@ img.bg-logo {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 30px;
-    border: 1px solid currentColor; /* Use theme color via color property */
-    border-radius: 30px;
+    width: 75%;                         /* ~3/4 of the text area */
+    padding: 28px 30px;                 /* ~2 line heights tall */
+    border: 2px solid currentColor;
+    border-radius: 16px;                /* Rounded rectangle (not pill) */
     text-decoration: none;
-    transition: all 0.3s ease;
-    background: transparent;
+    transition: background 0.3s ease, color 0.3s ease;
+    background: currentColor;           /* Filled by default */
     cursor: pointer;
-    overflow: hidden;
     position: relative;
 }
 
 .sec-btn img {
-    height: 18px; /* Compact height for the catchlogo icon */
+    height: 22px;
     width: auto;
-    filter: brightness(0) saturate(100%) invert(18%) sepia(26%) offset(0); /* Default to body text color or similar */
+    filter: brightness(0) invert(1);    /* White icon on filled background by default */
+    transition: filter 0.3s ease;
 }
 
 .sec-btn:hover {
-    background: currentColor;
+    background: transparent;            /* Hollow on hover */
 }
 
 .sec-btn:hover img {
-    filter: brightness(0) invert(1); /* Turn icon white on hover */
+    filter: none;                       /* Icon reverts to natural color on hover */
 }
 
 /* Color overrides for buttons using existing bg classes or color inheritance */
