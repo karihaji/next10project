@@ -87,7 +87,7 @@ img {
     display: flex;
     flex-direction: row;
     z-index: -2; /* Behind everything */
-    opacity: 0.05; /* Very subtle behind the white/grey linear gradient... wait */
+    opacity: 0.10; /* Increased to 10% per user request */
     pointer-events: none;
 }
 
