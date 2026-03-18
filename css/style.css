@@ -56,8 +56,12 @@ img {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* fade out total timeline: delay 2.5s (1s fade in + 1.5s static), duration 1s */
-    animation: fadeOutOverlay 1s ease 2.5s forwards;
+    /* Total Timeline:
+       Bars Fall: 0s - 0.8s
+       Logo Fades In/Stay: 1.0s - 2.8s
+       Everything Fades Out: 3.0s - 4.0s
+    */
+    animation: fadeOutOverlay 1s ease 3s forwards;
 }
 
 .color-bars {
@@ -75,6 +79,22 @@ img {
 .cbar {
     flex: 1;
     height: 100%;
+    transform: translateY(-100%); /* Start off-screen */
+    animation: barFall 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Staggered random-ish delays for each bar */
+#startup-overlay .cbar:nth-child(1) { animation-delay: 0.1s; }
+#startup-overlay .cbar:nth-child(2) { animation-delay: 0.3s; }
+#startup-overlay .cbar:nth-child(3) { animation-delay: 0.0s; }
+#startup-overlay .cbar:nth-child(4) { animation-delay: 0.4s; }
+#startup-overlay .cbar:nth-child(5) { animation-delay: 0.2s; }
+#startup-overlay .cbar:nth-child(6) { animation-delay: 0.5s; }
+#startup-overlay .cbar:nth-child(7) { animation-delay: 0.15s; }
+#startup-overlay .cbar:nth-child(8) { animation-delay: 0.35s; }
+
+@keyframes barFall {
+    to { transform: translateY(0); }
 }
 
 /* Global Subtle Color Bars behind Main Page */
@@ -95,8 +115,30 @@ img {
     position: relative;
     z-index: 2;
     opacity: 0;
-    /* 1s fade-in, 1.5s static, 1s fade-out => Total 3.5s */
-    animation: fadeSeq 3.5s ease forwards;
+    transform: translateY(20px); /* Fluffy float-up start */
+    /* Wait for bars (0.8s + max delay 0.5s) => Start at 1.2s
+       Fade in 0.8s, Stay 1s, Fade out 0.5s
+    */
+    animation: logoPop 2.3s ease 1.0s forwards;
+}
+
+@keyframes logoPop {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }
 
 .startup-logo {
