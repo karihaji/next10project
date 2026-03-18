@@ -302,14 +302,61 @@ img.bg-logo {
     border-radius: 2px;
 }
 
+.text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start; /* Default for mobile/left */
+}
+
 .body-text {
     font-size: clamp(14px, 4vw, 16px);
-    /* Responsive font scaling up to prevent wrapping */
     text-align: left;
     letter-spacing: 0.03em;
     white-space: nowrap;
-    /* Assure strict 1 line per <p> sequence based on <br> */
 }
+
+/* Section Navigation Button */
+.sec-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    border: 1px solid currentColor; /* Use theme color via color property */
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.sec-btn img {
+    height: 18px; /* Compact height for the catchlogo icon */
+    width: auto;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(26%) offset(0); /* Default to body text color or similar */
+}
+
+.sec-btn:hover {
+    background: currentColor;
+}
+
+.sec-btn:hover img {
+    filter: brightness(0) invert(1); /* Turn icon white on hover */
+}
+
+/* Color overrides for buttons using existing bg classes or color inheritance */
+#integrity .sec-btn { color: #607894; }
+#challenge .sec-btn { color: #005f6b; }
+#humanity  .sec-btn { color: #dea876; }
+#innovation .sec-btn { color: #0077b6; }
+#mission    .sec-btn { color: #766a8a; }
+#amusement  .sec-btn { color: #967117; }
+#revolution .sec-btn { color: #ff806e; }
+#unison     .sec-btn { color: #a7a7a7; }
+
 
 
 /* ③ 左右レイアウト展開: 
@@ -499,10 +546,16 @@ img.bg-logo {
         margin-left: -10vw; 
     }
 
-    .layout-right .body-text {
+    .layout-right .text-container {
         width: 45%;
+        align-items: flex-end;
+    }
+
+    .layout-right .body-text {
+        width: 100%;
+        text-align: right;
         font-size: 16px;
-        white-space: normal; /* Allow wrapping on wide lines if needed, or keep nowrap if preferred by design. Let's stick to nowrap for the poetic feel. */
+        white-space: normal;
         line-height: 2.2;
     }
     
@@ -524,8 +577,13 @@ img.bg-logo {
         margin-right: -10vw;
     }
 
-    .layout-left .body-text {
+    .layout-left .text-container {
         width: 45%;
+        align-items: flex-start;
+    }
+
+    .layout-left .body-text {
+        width: 100%;
         font-size: 16px;
         line-height: 2.2;
     }
@@ -540,6 +598,15 @@ img.bg-logo {
     .layout-center .sec-image {
         width: 100%; /* Increased from 80% to span the full flex width for maximum impact */
         margin: 0 auto;
+    }
+
+    .layout-center .text-container {
+        width: 100%;
+        align-items: center;
+    }
+
+    .layout-center .body-text {
+        text-align: center;
     }
     
     .layout-center .catchword {
