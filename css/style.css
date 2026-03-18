@@ -86,9 +86,8 @@ img {
 }
 
 .startup-logo {
-    width: 200px;
+    width: clamp(300px, 40vw, 800px); /* Massive increase in size as requested */
     height: auto;
-    filter: invert(1); /* Invert the white SVG to black so it's visible on the white overlay */
 }
 
 @keyframes fadeSeq {
