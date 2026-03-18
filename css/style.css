@@ -204,6 +204,13 @@ img {
     padding: 80px 20px 40px;
 }
 
+/* Intro / Story placeholder - blank canvas, add content freely */
+.intro-section {
+    justify-content: flex-start;  /* Allow content to flow from top */
+    padding: 0;                   /* Remove default section padding - custom styling inside */
+    overflow: hidden;
+}
+
 /* ④ 背景に巨大英語ロゴ画像 */
 img.bg-logo {
     position: absolute;
