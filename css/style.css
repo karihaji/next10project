@@ -345,8 +345,8 @@ img {
 }
 
 .bridge-section.is-visible .bridge-scroll-filler {
-    animation: fadeInDots 3s ease forwards;
-    animation-delay: 4s;              /* Appear after keywords start floating */
+    animation: fadeInDots 1.5s ease forwards;
+    animation-delay: 1.5s;             /* Much faster, so they are ready by the time user scrolls down */
 }
 
 .dot {
