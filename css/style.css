@@ -281,8 +281,8 @@ img {
     position: relative;
     z-index: 5;
     width: 100%;
-    height: 70vh;                     /* Increased height area for scattering */
-    max-width: 1000px;                /* Wider for more air */
+    height: 85vh;                     /* Further increased height for better vertical span */
+    max-width: 1100px;                /* Wider for more air */
     margin-top: 40px;
 }
 
@@ -324,15 +324,15 @@ img {
     font-size: 1.25em;
 }
 
-/* Individual Positions and Colors (Following ICHIMARU reading order vertically) */
-.item-i { color: #607894; top: 5%; left: 8%; animation-duration: 5s; }
-.item-c { color: #005f6b; top: 18%; right: 12%; animation-duration: 7s; animation-delay: 0.5s; }
-.item-h { color: #dea876; top: 32%; left: 15%; animation-duration: 6s; animation-delay: 1.2s; }
-.item-i2 { color: #0077b6; top: 45%; right: 18%; animation-duration: 5.5s; animation-delay: 0.8s; }
-.item-m { color: #766a8a; top: 58%; left: 10%; animation-duration: 6.5s; animation-delay: 1.5s; }
-.item-a { color: #967117; top: 72%; right: 15%; animation-duration: 7.5s; animation-delay: 0.2s; }
-.item-r { color: #ff806e; top: 85%; left: 55%; animation-duration: 5.8s; animation-delay: 2s; }
-.item-u { color: #a7a7a7; top: 95%; left: 32%; animation-duration: 6.2s; animation-delay: 1s; }
+/* Individual Positions and Colors (Strictly even vertical distribution) */
+.item-i { color: #607894; top: 0%; left: 10%; animation-duration: 5s; }
+.item-c { color: #005f6b; top: 14%; right: 12%; animation-duration: 7s; animation-delay: 0.5s; }
+.item-h { color: #dea876; top: 28%; left: 15%; animation-duration: 6s; animation-delay: 1.2s; }
+.item-i2 { color: #0077b6; top: 42%; right: 18%; animation-duration: 5.5s; animation-delay: 0.8s; }
+.item-m { color: #766a8a; top: 56%; left: 10%; animation-duration: 6.5s; animation-delay: 1.5s; }
+.item-a { color: #967117; top: 70%; right: 15%; animation-duration: 7.5s; animation-delay: 0.2s; }
+.item-r { color: #ff806e; top: 84%; left: 55%; animation-duration: 5.8s; animation-delay: 2s; }
+.item-u { color: #a7a7a7; top: 98%; left: 30%; animation-duration: 6.2s; animation-delay: 1s; }
 
 /* Background 8-color Bars */
 .bridge-bg-bars {
