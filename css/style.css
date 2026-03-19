@@ -269,8 +269,8 @@ img {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-height: 500vh;                /* Optimized scroll journey to balance keywords and dots */
-    padding: 120px 40px 15vh;         /* Reduced bottom padding to transition faster */
+    min-height: 600vh;                /* Increased slightly to accommodate larger word-to-dot gap */
+    padding: 120px 40px 20vh;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -334,16 +334,16 @@ img {
 .item-i2 { color: #0077b6; top: 42%; right: 18%; animation-duration: 5.5s; animation-delay: 0.8s; }
 .item-m { color: #766a8a; top: 56%; left: 10%; animation-duration: 6.5s; animation-delay: 1.5s; }
 .item-a { color: #967117; top: 70%; right: 15%; animation-duration: 7.5s; animation-delay: 0.2s; }
-.item-r { color: #ff806e; top: 84%; left: 55%; animation-duration: 5.8s; animation-delay: 2s; }
-.item-u { color: #a7a7a7; top: 95%; left: 30%; animation-duration: 6.2s; animation-delay: 1s; }
+.item-r { color: #ff806e; top: 82%; left: 55%; animation-duration: 5.8s; animation-delay: 2s; }
+.item-u { color: #a7a7a7; top: 92%; left: 30%; animation-duration: 6.2s; animation-delay: 1s; }
 
 /* Cinematic Hub Dots Style (8 Symbolic Circles) */
 .bridge-scroll-filler {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 80px;                        /* Tightened gap for a rhythmic, combined feel */
-    margin-top: 40vh;                 /* One more line/screen of scroll after large keywords journey */
+    gap: 80px;
+    margin-top: 100vh;                /* Significantly increased gap to prevent overlap with keywords */
     opacity: 0;
 }
 
