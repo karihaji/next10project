@@ -281,40 +281,58 @@ img {
     position: relative;
     z-index: 5;
     width: 100%;
-    max-width: 600px;
+    height: 60vh;                     /* Fixed height area for scattering */
+    max-width: 900px;
+    margin-top: 40px;
 }
 
 .bridge-catchphrase {
     font-size: clamp(24px, 5vw, 36px);
-    margin-bottom: 80px;
+    margin-bottom: 0;
     letter-spacing: 0.15em;
     color: #093065;
     opacity: 0;
     transform: translateY(20px);
 }
 
-.acronym-list {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
+.bridge-scatter-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 60px;
 }
 
 .acronym-item {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: clamp(20px, 6vw, 28px);
-    letter-spacing: 0.25em;
-    color: #4a5e7b;                   /* Slightly softer than main text */
+    position: absolute;
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(16px, 4vw, 24px);
+    letter-spacing: 0.1em;
     opacity: 0;
-    transform: translateY(20px);
+    white-space: nowrap;
+    animation: floating 6s ease-in-out infinite; /* Default floating */
+}
+
+.acronym-jp {
+    font-size: 0.85em;
     font-weight: 300;
+    font-family: 'Noto Sans JP', sans-serif;
+    opacity: 0.9;
 }
 
 .acronym-initial {
-    font-weight: 600;                 /* Subtle highlight */
-    color: #093065;                   /* Darker for subtle acronym detection */
-    font-family: 'Noto Serif JP', serif;
+    font-weight: 600;
+    font-size: 1.25em;
 }
+
+/* Individual Positions and Colors */
+.item-i { color: #607894; top: 10%; left: 5%; animation-duration: 5s; }
+.item-c { color: #005f6b; top: 15%; right: 10%; animation-duration: 7s; animation-delay: 0.5s; }
+.item-h { color: #dea876; top: 45%; left: 12%; animation-duration: 6s; animation-delay: 1.2s; }
+.item-i2 { color: #0077b6; top: 55%; right: 15%; animation-duration: 5.5s; animation-delay: 0.8s; }
+.item-m { color: #766a8a; top: 75%; left: 8%; animation-duration: 6.5s; animation-delay: 1.5s; }
+.item-a { color: #967117; top: 85%; right: 10%; animation-duration: 7.5s; animation-delay: 0.2s; }
+.item-r { color: #ff806e; top: 35%; right: 35%; animation-duration: 5.8s; animation-delay: 2s; }
+.item-u { color: #a7a7a7; bottom: 5%; left: 45%; animation-duration: 6.2s; animation-delay: 1s; }
 
 /* Background 8-color Bars */
 .bridge-bg-bars {
@@ -355,18 +373,39 @@ img {
 }
 
 .bridge-section.is-visible .acronym-item {
-    animation: fadeInUp 1s ease forwards;
+    animation: fadeInUpBridge 1.5s ease forwards; /* Custom fade-in for bridge items that doesn't conflict with floating */
 }
 
-/* Staggered delay for acronym items */
-.bridge-section.is-visible .acronym-item:nth-child(1) { animation-delay: 0.8s; }
-.bridge-section.is-visible .acronym-item:nth-child(2) { animation-delay: 1.0s; }
-.bridge-section.is-visible .acronym-item:nth-child(3) { animation-delay: 1.2s; }
-.bridge-section.is-visible .acronym-item:nth-child(4) { animation-delay: 1.4s; }
-.bridge-section.is-visible .acronym-item:nth-child(5) { animation-delay: 1.6s; }
-.bridge-section.is-visible .acronym-item:nth-child(6) { animation-delay: 1.8s; }
-.bridge-section.is-visible .acronym-item:nth-child(7) { animation-delay: 2.0s; }
-.bridge-section.is-visible .acronym-item:nth-child(8) { animation-delay: 2.2s; }
+@keyframes fadeInUpBridge {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Staggered delay for acronym items (initial entrance) */
+.bridge-section.is-visible .item-i { animation-delay: 0.8s, 0s; }
+.bridge-section.is-visible .item-c { animation-delay: 1.0s, 0.5s; }
+.bridge-section.is-visible .item-h { animation-delay: 1.2s, 1.2s; }
+.bridge-section.is-visible .item-i2 { animation-delay: 1.4s, 0.8s; }
+.bridge-section.is-visible .item-m { animation-delay: 1.6s, 1.5s; }
+.bridge-section.is-visible .item-a { animation-delay: 1.8s, 0.2s; }
+.bridge-section.is-visible .item-r { animation-delay: 2.0s, 2s; }
+.bridge-section.is-visible .item-u { animation-delay: 2.2s, 1s; }
+
+/* To combine drift-in and floating, we use multiple animations */
+.bridge-section.is-visible .acronym-item {
+    animation: fadeInUpBridge 1.5s ease forwards, floating 6s ease-in-out infinite;
+}
 
 @keyframes fadeInUp {
     from {
