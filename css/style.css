@@ -299,7 +299,7 @@ img {
     position: relative;
     width: 100%;
     height: 100%;
-    margin-top: 30px;                 /* Reduced margin */
+    margin-top: 40vh;                 /* One more line/screen of scroll before keywords as requested */
 }
 
 .acronym-item {
@@ -342,7 +342,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40vh;                        /* Balanced gap for 16px dots */
+    gap: 25vh;                        /* Tightened gap as requested (was 40vh) */
     margin-top: 50vh;                 /* Space after large keywords journey */
     opacity: 0;
 }
