@@ -281,8 +281,8 @@ img {
     position: relative;
     z-index: 5;
     width: 100%;
-    height: 60vh;                     /* Fixed height area for scattering */
-    max-width: 900px;
+    height: 70vh;                     /* Increased height area for scattering */
+    max-width: 1000px;                /* Wider for more air */
     margin-top: 40px;
 }
 
@@ -305,8 +305,8 @@ img {
 .acronym-item {
     position: absolute;
     font-family: 'Noto Serif JP', serif;
-    font-size: clamp(16px, 4vw, 24px);
-    letter-spacing: 0.1em;
+    font-size: clamp(15px, 3.5vw, 22px); /* Slightly smaller for more air */
+    letter-spacing: 0.12em;
     opacity: 0;
     white-space: nowrap;
     animation: floating 6s ease-in-out infinite; /* Default floating */
@@ -325,14 +325,14 @@ img {
 }
 
 /* Individual Positions and Colors */
-.item-i { color: #607894; top: 10%; left: 5%; animation-duration: 5s; }
-.item-c { color: #005f6b; top: 15%; right: 10%; animation-duration: 7s; animation-delay: 0.5s; }
-.item-h { color: #dea876; top: 45%; left: 12%; animation-duration: 6s; animation-delay: 1.2s; }
-.item-i2 { color: #0077b6; top: 55%; right: 15%; animation-duration: 5.5s; animation-delay: 0.8s; }
-.item-m { color: #766a8a; top: 75%; left: 8%; animation-duration: 6.5s; animation-delay: 1.5s; }
-.item-a { color: #967117; top: 85%; right: 10%; animation-duration: 7.5s; animation-delay: 0.2s; }
-.item-r { color: #ff806e; top: 35%; right: 35%; animation-duration: 5.8s; animation-delay: 2s; }
-.item-u { color: #a7a7a7; bottom: 5%; left: 45%; animation-duration: 6.2s; animation-delay: 1s; }
+.item-i { color: #607894; top: 2%; left: 0%; animation-duration: 5s; }
+.item-c { color: #005f6b; top: 12%; right: 5%; animation-duration: 7s; animation-delay: 0.5s; }
+.item-h { color: #dea876; top: 38%; left: 2%; animation-duration: 6s; animation-delay: 1.2s; }
+.item-i2 { color: #0077b6; top: 48%; right: 8%; animation-duration: 5.5s; animation-delay: 0.8s; }
+.item-m { color: #766a8a; top: 72%; left: 0%; animation-duration: 6.5s; animation-delay: 1.5s; }
+.item-a { color: #967117; top: 82%; right: 4%; animation-duration: 7.5s; animation-delay: 0.2s; }
+.item-r { color: #ff806e; top: 25%; left: 55%; animation-duration: 5.8s; animation-delay: 2s; }
+.item-u { color: #a7a7a7; bottom: 8%; left: 42%; animation-duration: 6.2s; animation-delay: 1s; }
 
 /* Background 8-color Bars */
 .bridge-bg-bars {
