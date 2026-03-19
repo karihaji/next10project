@@ -267,12 +267,12 @@ img {
 .bridge-section {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;      /* Changed to flex-start to allow long scrolling */
+    justify-content: flex-start;
     align-items: center;
-    min-height: 150vh;                /* Increased for symbolic dots scroll */
-    padding: 120px 40px 100px;
+    min-height: 180vh;                /* Further increased to give more room for dots */
+    padding: 120px 40px 150px;
     position: relative;
-    overflow: visible;                /* Allow scrolling within section */
+    overflow: hidden;                 /* Back to hidden to clip any unintended bleed */
     text-align: center;
     background: transparent;
 }
@@ -339,10 +339,10 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;                        /* Generous vertical gap */
-    margin-top: 200px;                /* Space after the scattered text */
-    padding-bottom: 200px;
-    opacity: 0;                       /* Fade in with section */
+    gap: 45px;                        /* Slightly tighter gap */
+    margin-top: 120px;                /* Reduced margin */
+    padding-bottom: 120px;
+    opacity: 0;
 }
 
 .bridge-section.is-visible .bridge-scroll-filler {
