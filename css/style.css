@@ -269,8 +269,8 @@ img {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-height: 180vh;                /* Long scroll experience */
-    padding: 120px 40px 250px;        /* Large bottom padding to push next section away */
+    min-height: 250vh;                /* Extended for a more dramatic scroll journey */
+    padding: 120px 40px 400px;        /* Huge bottom padding for transition */
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -339,8 +339,8 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;                        /* Tight but comfortable gap */
-    margin-top: 150px;                /* Significant space after scattered keywords */
+    gap: 100px;                       /* Much wider gap as requested */
+    margin-top: 350px;                /* Significant space after scattered keywords */
     opacity: 0;
 }
 
@@ -350,11 +350,11 @@ img {
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
+    width: 20px;                      /* Larger dot size as requested */
+    height: 20px;
     border-radius: 50%;
     display: block;
-    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    box-shadow: 0 0 15px rgba(255,255,255,0.15);
     animation: pulseDot 4s infinite ease-in-out;
 }
 
