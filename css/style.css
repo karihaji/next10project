@@ -225,7 +225,7 @@ img {
 
 .intro-catchword {
     font-size: clamp(32px, 8vw, 64px); /* Much larger */
-    letter-spacing: 0.15em;           /* Wider tracking */
+    letter-spacing: 0.1em;            /* Slightly tighter for English */
     line-height: 1.2;
     margin-bottom: 30px;
     font-weight: 500;
@@ -247,6 +247,13 @@ img {
     color: #093065;
     text-align: left;
     margin: 0 auto;
+}
+
+.intro-footer-catchword {
+    font-size: clamp(32px, 4vw, 48px); /* Standard section catchword size */
+    letter-spacing: 0.15em;
+    margin-top: 60px;
+    color: #093065;
 }
 
 .intro-bg-logo {
