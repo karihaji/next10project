@@ -263,6 +263,133 @@ img {
     top: 40% !important;              /* Positioned slightly high */
 }
 
+/* 7. Bridge Section (Manifesto) */
+.bridge-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: transparent;
+}
+
+.bridge-content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 600px;
+}
+
+.bridge-catchphrase {
+    font-size: clamp(24px, 5vw, 36px);
+    margin-bottom: 80px;
+    letter-spacing: 0.15em;
+    color: #093065;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.acronym-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.acronym-item {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(20px, 6vw, 28px);
+    letter-spacing: 0.25em;
+    color: #4a5e7b;                   /* Slightly softer than main text */
+    opacity: 0;
+    transform: translateY(20px);
+    font-weight: 300;
+}
+
+.acronym-initial {
+    font-weight: 600;                 /* Subtle highlight */
+    color: #093065;                   /* Darker for subtle acronym detection */
+    font-family: 'Noto Serif JP', serif;
+}
+
+/* Background 8-color Bars */
+.bridge-bg-bars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    opacity: 0.08;                    /* Very subtle */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bridge-cbar {
+    flex: 1;
+    height: 100%;
+}
+
+.bridge-bg-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20vw;
+    color: #093065;
+    opacity: 0.03;                    /* Extremely faint */
+    white-space: nowrap;
+    z-index: 2;
+    pointer-events: none;
+    letter-spacing: 0.1em;
+}
+
+/* Animations for Bridge Section */
+.bridge-section.is-visible .bridge-catchphrase {
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.bridge-section.is-visible .acronym-item {
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Staggered delay for acronym items */
+.bridge-section.is-visible .acronym-item:nth-child(1) { animation-delay: 0.8s; }
+.bridge-section.is-visible .acronym-item:nth-child(2) { animation-delay: 1.0s; }
+.bridge-section.is-visible .acronym-item:nth-child(3) { animation-delay: 1.2s; }
+.bridge-section.is-visible .acronym-item:nth-child(4) { animation-delay: 1.4s; }
+.bridge-section.is-visible .acronym-item:nth-child(5) { animation-delay: 1.6s; }
+.bridge-section.is-visible .acronym-item:nth-child(6) { animation-delay: 1.8s; }
+.bridge-section.is-visible .acronym-item:nth-child(7) { animation-delay: 2.0s; }
+.bridge-section.is-visible .acronym-item:nth-child(8) { animation-delay: 2.2s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Theme Background Colors for Bars/Slants */
+.bg-integrity { background-color: #607894; }
+.bg-challenge { background-color: #005f6b; }
+.bg-humanity { background-color: #dea876; }
+.bg-innovation { background-color: #0077b6; }
+.bg-mission { background-color: #766a8a; }
+.bg-amusement { background-color: #967117; }
+.bg-revolution { background-color: #ff806e; }
+.bg-unison { background-color: #a7a7a7; }
+
+
 /* ④ 背景に巨大英語ロゴ画像 */
 img.bg-logo {
     position: absolute;
