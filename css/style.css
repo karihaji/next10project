@@ -206,9 +206,24 @@ img {
 
 /* Intro / Story placeholder - blank canvas, add content freely */
 .intro-section {
-    justify-content: flex-start;  /* Allow content to flow from top */
-    padding: 0;                   /* Remove default section padding - custom styling inside */
+    justify-content: center;
+    padding: 80px 40px;
     overflow: hidden;
+}
+
+.intro-content {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.intro-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(14px, 4vw, 16px);
+    line-height: 2.0;
+    letter-spacing: 0.05em;
+    color: #093065;
 }
 
 /* ④ 背景に巨大英語ロゴ画像 */
