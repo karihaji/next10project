@@ -267,12 +267,12 @@ img {
 .bridge-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;      /* Changed to flex-start to allow long scrolling */
     align-items: center;
-    min-height: 100vh;
-    padding: 60px 40px 40px;          /* Reduced padding to fit more content */
+    min-height: 150vh;                /* Increased for symbolic dots scroll */
+    padding: 120px 40px 100px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;                /* Allow scrolling within section */
     text-align: center;
     background: transparent;
 }
@@ -333,6 +333,52 @@ img {
 .item-a { color: #967117; top: 70%; right: 15%; animation-duration: 7.5s; animation-delay: 0.2s; }
 .item-r { color: #ff806e; top: 84%; left: 55%; animation-duration: 5.8s; animation-delay: 2s; }
 .item-u { color: #a7a7a7; top: 95%; left: 30%; animation-duration: 6.2s; animation-delay: 1s; }
+
+/* 8 Symbolic Dots (Maru) Style */
+.bridge-scroll-filler {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;                        /* Generous vertical gap */
+    margin-top: 200px;                /* Space after the scattered text */
+    padding-bottom: 200px;
+    opacity: 0;                       /* Fade in with section */
+}
+
+.bridge-section.is-visible .bridge-scroll-filler {
+    animation: fadeInDots 2s ease forwards;
+    animation-delay: 3s;              /* Appear after keywords start floating */
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    animation: pulseDot 4s infinite ease-in-out;
+}
+
+/* Staggered pulse delay for dots */
+.dot:nth-child(1) { animation-delay: 0.0s; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+.dot:nth-child(4) { animation-delay: 0.6s; }
+.dot:nth-child(5) { animation-delay: 0.8s; }
+.dot:nth-child(6) { animation-delay: 1.0s; }
+.dot:nth-child(7) { animation-delay: 1.2s; }
+.dot:nth-child(8) { animation-delay: 1.4s; }
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.2); }
+}
+
+@keyframes fadeInDots {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 
 /* Background 8-color Bars */
 .bridge-bg-bars {
