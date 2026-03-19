@@ -207,15 +207,27 @@ img {
 /* Intro / Story placeholder - blank canvas, add content freely */
 .intro-section {
     justify-content: center;
+    align-items: center;              /* Center horizontally */
     padding: 80px 40px;
     overflow: hidden;
+    text-align: center;               /* Cascade center to text */
 }
 
 .intro-content {
     width: 100%;
     max-width: 640px;
     margin: 0 auto;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.intro-catchword {
+    font-size: clamp(24px, 6vw, 40px);
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
 .intro-text {
@@ -224,6 +236,7 @@ img {
     line-height: 2.0;
     letter-spacing: 0.05em;
     color: #093065;
+    text-align: left;                 /* Keep body text left-aligned for readability */
 }
 
 /* ④ 背景に巨大英語ロゴ画像 */
