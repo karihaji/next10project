@@ -206,37 +206,53 @@ img {
 
 /* Intro / Story placeholder - blank canvas, add content freely */
 .intro-section {
-    justify-content: center;
+    justify-content: flex-start;      /* Push down from top */
     align-items: center;              /* Center horizontally */
-    padding: 80px 40px;
+    padding: 22vh 40px 15vh;          /* Significant top padding to move down */
     overflow: hidden;
-    text-align: center;               /* Cascade center to text */
+    text-align: center;
 }
 
 .intro-content {
     width: 100%;
-    max-width: 640px;
+    max-width: 680px;                 /* Slightly wider for presence */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 0;                           /* Gap handled by margins */
 }
 
 .intro-catchword {
-    font-size: clamp(24px, 6vw, 40px);
-    letter-spacing: 0.08em;
-    line-height: 1.6;
-    margin-bottom: 0;
+    font-size: clamp(32px, 8vw, 64px); /* Much larger */
+    letter-spacing: 0.15em;           /* Wider tracking */
+    line-height: 1.2;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.intro-divider {
+    width: 40px;
+    height: 1px;
+    background-color: #093065;
+    margin-bottom: 50px;
+    opacity: 0.6;
 }
 
 .intro-text {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: clamp(14px, 4vw, 16px);
-    line-height: 2.0;
-    letter-spacing: 0.05em;
+    font-size: clamp(14px, 4vw, 16.5px);
+    line-height: 2.2;                 /* More air */
+    letter-spacing: 0.08em;           /* More air */
     color: #093065;
-    text-align: left;                 /* Keep body text left-aligned for readability */
+    text-align: left;
+    margin: 0 auto;
+}
+
+.intro-bg-logo {
+    opacity: 0.08 !important;         /* Very subtle watermark */
+    width: 130vw !important;          /* Massive scale */
+    top: 40% !important;              /* Positioned slightly high */
 }
 
 /* ④ 背景に巨大英語ロゴ画像 */
