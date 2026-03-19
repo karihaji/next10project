@@ -250,9 +250,10 @@ img {
 }
 
 .intro-footer-catchword {
-    font-size: clamp(32px, 4vw, 48px); /* Standard section catchword size */
-    letter-spacing: 0.15em;
-    margin-top: 60px;
+    font-size: clamp(20px, 6vw, 32px); /* Matches standard mobile catchword */
+    letter-spacing: 0.05em;
+    margin-top: 80px;
+    margin-bottom: 20px;
     color: #093065;
 }
 
@@ -674,6 +675,10 @@ img.bg-logo {
     
     .layout-center .catchword {
         font-size: clamp(32px, 4vw, 48px);
+    }
+
+    .intro-footer-catchword {
+        font-size: clamp(32px, 4vw, 48px); /* Matches standard PC catchword */
     }
 }
 
