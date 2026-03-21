@@ -909,6 +909,48 @@ img.bg-logo {
     .intro-footer-catchword {
         font-size: clamp(32px, 4vw, 48px); /* Matches standard PC catchword */
     }
+
+    /* --- Bridge Section Mobile Adjustments --- */
+    .bridge-section {
+        min-height: 400vh;
+    }
+
+    .bridge-catchphrase {
+        font-size: 1.4rem;
+        padding: 0 15px;
+        line-height: 1.6;
+        word-break: keep-all; /* Better for Japanese */
+        overflow-wrap: break-word;
+    }
+
+    .bridge-content {
+        height: 250vh;
+    }
+
+    .acronym-item {
+        font-size: 1.1rem;
+        letter-spacing: 0.1em;
+    }
+
+    /* Prevent clipping: keep items more centered on mobile */
+    .item-i { left: 5%; }
+    .item-c { right: 5%; }
+    .item-h { left: 10%; }
+    .item-i2 { right: 10%; }
+    .item-m { left: 5%; }
+    .item-a { right: 8%; }
+    .item-r { left: 40%; } 
+    .item-u { left: 20%; }
+
+    .bridge-scroll-filler {
+        gap: 50px;
+        margin-top: 30vh;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
 }
 
 
