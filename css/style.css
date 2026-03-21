@@ -909,6 +909,58 @@ img.bg-logo {
     .intro-footer-catchword {
         font-size: clamp(32px, 4vw, 48px); /* Matches standard PC catchword */
     }
+}
+
+/* -------------------------------------------
+   Mobile Adjustments (max-width: 767px)
+   Clean, centered, and readable on small screens
+------------------------------------------- */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .flex-wrap {
+        flex-direction: column !important;
+        gap: 30px;
+    }
+
+    .sec-image {
+        width: 100% !important;
+        transform: none !important;
+        margin: 0 0 20px 0 !important;
+    }
+
+    .text-container {
+        width: 100% !important;
+        align-items: center !important;
+    }
+
+    .catchword {
+        font-size: 1.8rem !important;
+        text-align: center !important;
+        margin: 10px 0 20px !important;
+    }
+
+    .body-text {
+        text-align: center !important;
+        font-size: 14px !important;
+        line-height: 1.8 !important;
+        width: 100% !important;
+        padding: 0 10px;
+    }
+
+    .sec-btn {
+        margin: 30px auto 0 !important;
+    }
+
+    /* Background Logo Adjustment for Mobile */
+    img.bg-logo {
+        width: 120vw !important;
+        opacity: 0.1 !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
 
     /* --- Bridge Section Mobile Adjustments --- */
     .bridge-section {
@@ -919,7 +971,7 @@ img.bg-logo {
         font-size: 1.4rem;
         padding: 0 15px;
         line-height: 1.6;
-        word-break: keep-all; /* Better for Japanese */
+        word-break: keep-all; 
         overflow-wrap: break-word;
     }
 
@@ -932,7 +984,6 @@ img.bg-logo {
         letter-spacing: 0.1em;
     }
 
-    /* Prevent clipping: keep items more centered on mobile */
     .item-i { left: 5%; }
     .item-c { right: 5%; }
     .item-h { left: 10%; }
