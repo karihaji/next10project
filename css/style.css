@@ -936,10 +936,18 @@ img.bg-logo {
         align-items: center !important;
     }
 
+    .section-content {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
     .catchword {
         font-size: 1.8rem !important;
         text-align: center !important;
         margin: 10px 0 20px !important;
+        white-space: normal !important;
+        word-break: keep-all; 
+        overflow-wrap: break-word;
     }
 
     .body-text {
@@ -948,6 +956,9 @@ img.bg-logo {
         line-height: 1.8 !important;
         width: 100% !important;
         padding: 0 10px;
+        white-space: normal !important; /* Critical fix for overflow */
+        word-break: keep-all;
+        overflow-wrap: break-word;
     }
 
     .sec-btn {
@@ -982,16 +993,12 @@ img.bg-logo {
     .acronym-item {
         font-size: 1.1rem;
         letter-spacing: 0.1em;
+        white-space: normal !important; /* Allow wrapping securely */
+        text-align: center;
+        width: 90%; /* Center strictly within bounds */
+        left: 5% !important;
+        right: 5% !important;
     }
-
-    .item-i { left: 5%; }
-    .item-c { right: 5%; }
-    .item-h { left: 10%; }
-    .item-i2 { right: 10%; }
-    .item-m { left: 5%; }
-    .item-a { right: 8%; }
-    .item-r { left: 40%; } 
-    .item-u { left: 20%; }
 
     .bridge-scroll-filler {
         gap: 50px;
